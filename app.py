@@ -1,13 +1,18 @@
-from flask import Flask
+from flask import Flask,render_template
 app = Flask(__name__)
 #메인
 @app.route('/')
 def hello():
-    return 'Hello, World!'
+    return render_template("main.html", data =hello) 
+
 #야구
 @app.route('/Baseball')
 def baseball():
-    return '야구 페이지!'
+    return render_template("Baseball.html", data = baseball)
+#검색
+@app.route('/action')
+def action():
+    return "??을 검색한 결과 입니다"
 #축구
 @app.route('/Soccer')
 def Soccer():
@@ -25,7 +30,7 @@ def Soccer():
 #농구
 @app.route('/Basketball')
 def Basketball():
-    return '농구 페이지!'
+    return '농구페이지'
 #배구
 @app.route('/Volleyball')
 def Volleyball():
